@@ -99,7 +99,7 @@ public class JoinActivity extends AppCompatActivity {
                 Toast.makeText(JoinActivity.this, result.getrealresult(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
-                if (result.getrealresult() == "success") {
+                if (result.getrealresult().equals("success")) {
                     finish();
                 }
             }

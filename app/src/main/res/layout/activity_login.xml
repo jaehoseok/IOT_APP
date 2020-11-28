@@ -35,7 +35,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="ID"
-                    android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -64,7 +63,6 @@
                 android:onClick="attemptLogin"
                 android:text="로그인"
                 android:textStyle="bold" />
-
             <Button
                 android:id="@+id/join_button"
                 android:layout_width="match_parent"
@@ -72,6 +70,7 @@
                 android:layout_marginTop="10dp"
                 android:text="회원가입"
                 android:textStyle="bold" />
+
 
         </LinearLayout>
     </ScrollView>

@@ -7,6 +7,13 @@
     android:padding="20dp"
     tools:context=".activity.LoginActivity">
 
+    <ProgressBar
+        android:id="@+id/search_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -14,12 +21,13 @@
         android:background="#303F9F"
         android:orientation="horizontal">
 
-        <TextView
+        <EditText
+            android:id="@+id/serial_num"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="일련번호"
+            android:hint="일련 번호"
             android:textColor="#FFFFFF"
             android:textSize="40dp" />
 
@@ -27,57 +35,63 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:gravity="center">
 
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="상태"
-                android:textColor="#FFFFFF"
-                android:textSize="40dp"></TextView>
-
-            <Switch
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF" />
-
+                android:text="검색"
+                android:textSize="20dp" />
         </LinearLayout>
-
-
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="7">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/notice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="#000000"
-                android:layout_marginBottom="20dp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="#000000"
-                android:layout_marginBottom="20dp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="#000000"
-                android:layout_marginBottom="20dp"></TextView>
-        </LinearLayout>
-
+            android:layout_marginBottom="20dp"></EditText>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/notice_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="특이사항 수정" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="수동모드 : "
+            android:textSize="20dp" />
+
+
+        <ToggleButton
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:gravity="center"
+            android:text="수동조작" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

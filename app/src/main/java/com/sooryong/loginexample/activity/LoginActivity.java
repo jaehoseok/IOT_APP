@@ -3,7 +3,6 @@ package com.sooryong.loginexample.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
@@ -42,16 +41,16 @@ public class LoginActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        mIDLoginButton.setOnClickListener(new OnClickListener() {
+        mIDLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
-        mJoinButton.setOnClickListener(new OnClickListener() {
+        mJoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,9 +95,10 @@ public class LoginActivity extends AppCompatActivity {
                 LoginResponse result = response.body();
                 Toast.makeText(LoginActivity.this, result.getrealresult(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
-                if(result.getrealresult() == "success") {
-                    Intent intent = new Intent(getApplicationContext(), Manhole_ListActivity.class);
+                if (result.getrealresult().equals("success")) {
+                    Intent intent = new Intent(LoginActivity.this, ManholeActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
 
@@ -108,14 +108,6 @@ public class LoginActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
-    }
-
-    private boolean isEmailValid(String email) {
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        return password.length() >= 6;
     }
 
     private void showProgress(boolean show) {
